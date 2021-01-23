@@ -1,22 +1,26 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "wimmie/laravel-xibo-api",
+    "description": "A Laravel package for using the Xibo api",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "wimmie",
+        "laravel-xibo-api",
+        "laravel",
+        "xibo"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/wimmie/laravel-xibo-api",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Willem van Dam",
+            "email": "willem@willemvandam.nl",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "illuminate/contracts": "^8.0"
+        "illuminate/contracts": "^8.0",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
@@ -24,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Wimmie\\XiboApi\\": "src",
+            "Wimmie\\XiboApi\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Wimmie\\XiboApi\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "Wimmie\\XiboApi\\XiboApiServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "XiboApi": "Wimmie\\XiboApi\\XiboApiFacade"
             }
         }
     },
