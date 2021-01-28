@@ -14,16 +14,14 @@ class DisplayProfile extends CategoryWithCrud
     protected string $name = 'displayprofile';
 
     /**
-     * Assign Layouts
-     * @param int $id
+     * Copy Display Profile
+     * @param $id
      * @param array $data
      * @return mixed
      */
-    public function copy(int $id, string $name)
+    public function copy(int $id, array $data)
     {
-        $url = $this->xiboApi->generateUrl($this->name, 'layout/assign', $id, [
-            'name' => $name,
-        ]);
-        return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_POST);
+        $url = $this->xiboApi->generateUrl($this->name, null, $id) . '/copy';
+        return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_POST, $data);
     }
 }

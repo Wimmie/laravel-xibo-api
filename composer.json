@@ -18,9 +18,10 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "illuminate/contracts": "^8.0",
         "ext-curl": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "illuminate/contracts": "^8.0",
+        "spatie/laravel-ray": "^1.9"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
@@ -28,8 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Wimmie\\XiboApi\\": "src",
-            "Wimmie\\XiboApi\\Database\\Factories\\": "database/factories"
+            "Wimmie\\XiboApi\\": "src"
         }
     },
     "autoload-dev": {

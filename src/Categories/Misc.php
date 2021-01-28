@@ -14,7 +14,7 @@ class Misc extends Category
     public function clock()
     {
         $url = $this->xiboApi->generateUrl('clock');
-        return $this->xiboApi->sendRequest($url,  XiboApi::REQUEST_GET);
+        return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_GET);
     }
 
     /**
@@ -24,6 +24,6 @@ class Misc extends Category
     public function about()
     {
         $url = $this->xiboApi->generateUrl('about');
-        return $this->xiboApi->sendRequest($url,  XiboApi::REQUEST_GET);
+        return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_GET);
     }
 }

@@ -30,7 +30,8 @@ class Schedule extends Category
      * @param array $parameters
      * @return mixed
      */
-    public function list(int $displayGroupId, array $parameters) {
+    public function list(int $displayGroupId, array $parameters)
+    {
         $url = $this->xiboApi->generateUrl($this->name, 'events', $displayGroupId, $parameters);
         return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_GET);
     }
@@ -40,7 +41,8 @@ class Schedule extends Category
      * @param array $data
      * @return mixed
      */
-    public function add(array $data) {
+    public function add(array $data)
+    {
         $url = $this->xiboApi->generateUrl($this->name);
         return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_POST, $data);
     }
@@ -51,7 +53,8 @@ class Schedule extends Category
      * @param array $data
      * @return mixed
      */
-    public function edit(int $eventId, array $data) {
+    public function edit(int $eventId, array $data)
+    {
         $url = $this->xiboApi->generateUrl($this->name, null, $eventId);
         return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_PUT, $data);
     }
@@ -61,7 +64,8 @@ class Schedule extends Category
      * @param int $eventId
      * @return mixed
      */
-    public function delete(int $eventId) {
+    public function delete(int $eventId)
+    {
         $url = $this->xiboApi->generateUrl($this->name, null, $eventId);
         return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_DELETE);
     }
@@ -71,7 +75,8 @@ class Schedule extends Category
      * @param int $eventId
      * @return mixed
      */
-    public function deleteRecurrence(int $eventId) {
+    public function deleteRecurrence(int $eventId)
+    {
         $url = $this->xiboApi->generateUrl($this->name . 'recurrence', null, $eventId);
         return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_DELETE);
     }

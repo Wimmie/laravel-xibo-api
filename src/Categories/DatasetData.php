@@ -6,16 +6,26 @@ namespace Wimmie\XiboApi\Categories;
 
 use Wimmie\XiboApi\XiboApi;
 
-abstract class CategoryWithCrud extends Category
+class DatasetData extends Category
 {
     /**
+     * @inheritdoc
+     */
+    protected string $name = 'dataset/data/{datasetId}';
+
+    public function __construct(XiboApi $xiboApi, int $datasetId)
+    {
+        $this->name = str_replace('{datasetId}', $datasetId, $this->name);
+        parent::__construct($xiboApi);
+    }
+
+    /**
      * Search
-     * @param array|null $parameters
      * @return mixed
      */
-    public function search(array $parameters = null)
+    public function get()
     {
-        $url = $this->xiboApi->generateUrl($this->name, null, null, $parameters);
+        $url = $this->xiboApi->generateUrl($this->name);
         return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_GET);
     }
 

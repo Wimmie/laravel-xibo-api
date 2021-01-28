@@ -6,21 +6,15 @@ namespace Wimmie\XiboApi\Categories;
 
 use Wimmie\XiboApi\XiboApi;
 
-abstract class CategoryWithCrud extends Category
+class Region extends Category
 {
     /**
-     * Search
-     * @param array|null $parameters
-     * @return mixed
+     * @inheritdoc
      */
-    public function search(array $parameters = null)
-    {
-        $url = $this->xiboApi->generateUrl($this->name, null, null, $parameters);
-        return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_GET);
-    }
+    protected string $name = 'region';
 
     /**
-     * Add
+     * Add Region
      * @param array $data
      * @return mixed
      */
@@ -31,7 +25,7 @@ abstract class CategoryWithCrud extends Category
     }
 
     /**
-     * Edit
+     * Edit Region
      * @param int $id
      * @param array $data
      * @return mixed
@@ -43,7 +37,7 @@ abstract class CategoryWithCrud extends Category
     }
 
     /**
-     * Delete
+     * Delete Region
      * @param int $id
      * @return mixed
      */
@@ -51,5 +45,17 @@ abstract class CategoryWithCrud extends Category
     {
         $url = $this->xiboApi->generateUrl($this->name, null, $id);
         return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_DELETE);
+    }
+
+    /**
+     * Position Regions
+     * @param int $layoutId
+     * @param array $data
+     * @return mixed
+     */
+    public function position(int $layoutId, array $data)
+    {
+        $url = $this->xiboApi->generateUrl($this->name, 'position/all', $layoutId);
+        return $this->xiboApi->sendRequest($url, XiboApi::REQUEST_PUT, $data);
     }
 }

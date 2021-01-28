@@ -4,8 +4,6 @@
 namespace Wimmie\XiboApi\Categories;
 
 
-use Wimmie\XiboApi\XiboApi;
-
 class Resolution extends CategoryWithCrud
 {
     /**

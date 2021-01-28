@@ -10,7 +10,7 @@ class XiboApiServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/laravel-xibo-api.php' => config_path('laravel-xibo-api.php'),
+                __DIR__ . '/../config/xibo-api.php' => config_path('xibo-api.php'),
             ], 'config');
         }
     }
